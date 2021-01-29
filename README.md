@@ -10,7 +10,7 @@ dialog
   
 
 	dependencies {
-	        implementation 'com.github.sdgSnow:SdgRocord:v1.0.0'
+	        implementation 'com.github.sdgSnow:SdgDialog:v1.0.0'
 	}
 
 
