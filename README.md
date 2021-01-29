@@ -1,8 +1,21 @@
 # SdgDialog
 dialog
 使用方法：
-1.初始化AppUtils：AppUtils.install(this)
-2.各弹出框使用：
+1.allprojects {
+  		repositories {
+  			...
+  			maven { url 'https://jitpack.io' }
+  		}
+  	}
+  
+
+	dependencies {
+	        implementation 'com.github.sdgSnow:SdgRocord:v1.0.0'
+	}
+
+
+2.初始化AppUtils：AppUtils.install(this)
+3.各弹出框使用：
 fun tipDialog(view: View) {
         TipDialog().setConfirm("确定").setContent("我是一个提示框").setCallBack(object :
             TipDialog.Callback{
