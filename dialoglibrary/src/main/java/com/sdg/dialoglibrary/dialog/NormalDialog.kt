@@ -29,6 +29,11 @@ class NormalDialog : BaseDialog() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        view.findViewById<TextView>(R.id.title).apply {
+            text = title
+        }
+
         view.findViewById<TextView>(R.id.content).apply {
             text = content
         }
