@@ -4,8 +4,10 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
+import com.blankj.utilcode.util.ActivityUtils
 
 /**
  * BaseDialog
@@ -58,6 +60,13 @@ abstract class BaseDialog : DialogFragment() {
                 attr.gravity = Gravity.CENTER
                 window.attributes = attr
             }
+        }
+    }
+
+    fun show(){
+        val topActivity = ActivityUtils.getTopActivity();
+        if(topActivity is AppCompatActivity){
+            show(topActivity.supportFragmentManager)
         }
     }
 

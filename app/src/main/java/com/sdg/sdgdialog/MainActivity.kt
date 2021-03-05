@@ -52,11 +52,11 @@ class MainActivity : AppCompatActivity() {
             override fun onConfirm() {
                 Toast.makeText(this@MainActivity, "确定", Toast.LENGTH_SHORT).show()
             }
-        }).show(supportFragmentManager)
+        }).show()
     }
 
     fun loadingDialog(view: View) {
-        LoadingDialog.get().show(supportFragmentManager)
+        LoadingDialog.get().show()
         handler.postDelayed(runnable,2000)
     }
 
@@ -69,11 +69,11 @@ class MainActivity : AppCompatActivity() {
             override fun onCancle() {
                 Toast.makeText(this@MainActivity, "取消", Toast.LENGTH_SHORT).show()
             }
-        }).show(supportFragmentManager)
+        }).show()
     }
 
     fun progressDialog(view: View) {
-        ProgressDialog.get().show(supportFragmentManager)
+        ProgressDialog.get().show()
         handler.postDelayed(runnableProgress,100)
     }
 }
