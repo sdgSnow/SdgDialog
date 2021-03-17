@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.sdg.dialoglibrary.R
-import com.sdg.dialoglibrary.utils.AppUtils
+import com.sdg.dialoglibrary.utils.SdgUtils
 
 class TipDialog : BaseDialog() {
 
@@ -68,7 +68,7 @@ class TipDialog : BaseDialog() {
     }
 
     override fun windowWidth(): Int {
-        return (AppUtils.getScreenWidthPixels() * width).toInt()
+        return (SdgUtils.getScreenWidthPixels() * width).toInt()
     }
 
     fun setCallBack(callback: Callback): TipDialog {

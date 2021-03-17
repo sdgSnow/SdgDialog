@@ -27,12 +27,12 @@ import androidx.core.content.ContextCompat;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class AppUtils {
+public class SdgUtils {
     private static Application sApplication;
     private static Handler sHandler;
     private static boolean sDebug;
 
-    private AppUtils() {
+    private SdgUtils() {
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 

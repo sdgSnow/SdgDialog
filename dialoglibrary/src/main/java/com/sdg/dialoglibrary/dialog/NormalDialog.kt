@@ -6,7 +6,6 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import com.sdg.dialoglibrary.R
-import com.sdg.dialoglibrary.utils.AppUtils
 
 class NormalDialog : BaseDialog() {
 

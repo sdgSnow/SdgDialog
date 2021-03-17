@@ -3,7 +3,7 @@ package com.sdg.dialoglibrary.dialog
 import android.os.Bundle
 import android.view.View
 import com.sdg.dialoglibrary.R
-import com.sdg.dialoglibrary.utils.AppUtils
+import com.sdg.dialoglibrary.utils.SdgUtils
 import kotlinx.android.synthetic.main.dialog_progress.*
 
 class ProgressDialog : BaseDialog() {
@@ -59,11 +59,11 @@ class ProgressDialog : BaseDialog() {
     }
 
     override fun windowWidth(): Int {
-        return AppUtils.dip2px(widthAndHeight)
+        return SdgUtils.dip2px(widthAndHeight)
     }
 
     override fun windowHeight(): Int {
-        return AppUtils.dip2px(widthAndHeight)
+        return SdgUtils.dip2px(widthAndHeight)
     }
 
 }

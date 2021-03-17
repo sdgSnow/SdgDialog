@@ -1,11 +1,11 @@
 package com.sdg.sdgdialog
 
 import android.app.Application
-import com.sdg.dialoglibrary.utils.AppUtils
+import com.sdg.dialoglibrary.utils.SdgUtils
 
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        AppUtils.install(this)
+        SdgUtils.install(this)
     }
 }

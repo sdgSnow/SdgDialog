@@ -4,12 +4,11 @@ import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import android.widget.TextView
 import com.sdg.dialoglibrary.R
-import com.sdg.dialoglibrary.utils.AppUtils
+import com.sdg.dialoglibrary.utils.SdgUtils
 
 class LoadingDialog : BaseDialog() {
 
@@ -79,11 +78,11 @@ class LoadingDialog : BaseDialog() {
     }
 
     override fun windowWidth(): Int {
-        return AppUtils.dip2px(widthAndHeight)
+        return SdgUtils.dip2px(widthAndHeight)
     }
 
     override fun windowHeight(): Int {
-        return AppUtils.dip2px(widthAndHeight)
+        return SdgUtils.dip2px(widthAndHeight)
     }
 
 }
