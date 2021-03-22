@@ -8,22 +8,6 @@ import kotlinx.android.synthetic.main.dialog_progress.*
 
 class ProgressDialog : BaseDialog() {
 
-    private var mProgressDialog: ProgressDialog? = null
-
-    companion object {
-        private var sInstance: ProgressDialog? = null
-        fun get(): ProgressDialog {
-            if (sInstance == null) {
-                synchronized(ProgressDialog::class.java) {
-                    if (sInstance == null) {
-                        sInstance = ProgressDialog()
-                    }
-                }
-            }
-            return sInstance!!
-        }
-    }
-
     //返回键取消
     private var backCancel: Boolean = false
 

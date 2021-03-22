@@ -23,22 +23,6 @@ class LoadingDialog : BaseDialog() {
     //加载框的宽高（需保持一致，因此放一起）
     private var widthAndHeight:Float = 100f
 
-    private var mLoadingDialog: LoadingDialog? = null
-
-    companion object {
-        private var sInstance: LoadingDialog? = null
-        fun get(): LoadingDialog {
-            if (sInstance == null) {
-                synchronized(LoadingDialog::class.java) {
-                    if (sInstance == null) {
-                        sInstance = LoadingDialog()
-                    }
-                }
-            }
-            return sInstance!!
-        }
-    }
-
     override fun getLayoutId(): Int = R.layout.dialog_loading
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

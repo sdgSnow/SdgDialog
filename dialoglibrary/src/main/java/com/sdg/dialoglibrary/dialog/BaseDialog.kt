@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.blankj.utilcode.util.ActivityUtils
+import com.sdg.dialoglibrary.dialog.LoadingDialog.Companion.get
 
 /**
  * BaseDialog
@@ -66,6 +67,9 @@ abstract class BaseDialog : DialogFragment() {
     fun show(){
         val topActivity = ActivityUtils.getTopActivity();
         if(topActivity is AppCompatActivity){
+            if(isAdded){
+                topActivity.supportFragmentManager.beginTransaction().remove(this).commit()
+            }
             show(topActivity.supportFragmentManager)
         }
     }
