@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.blankj.utilcode.util.ActivityUtils
-import com.sdg.dialoglibrary.dialog.LoadingDialog.Companion.get
 
 /**
  * BaseDialog

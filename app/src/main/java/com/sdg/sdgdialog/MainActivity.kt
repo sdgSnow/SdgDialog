@@ -5,10 +5,7 @@ import android.os.Handler
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.sdg.dialoglibrary.dialog.LoadingDialog
-import com.sdg.dialoglibrary.dialog.NormalDialog
-import com.sdg.dialoglibrary.dialog.ProgressDialog
-import com.sdg.dialoglibrary.dialog.TipDialog
+import com.sdg.dialoglibrary.dialog.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         override fun run() {
             //要做的事情
             handler.postDelayed(this, 100)
-            LoadingDialog.get().dismiss()
+            DialogManager.get().stopLoading()
             handler.removeCallbacks(this)
         }
     }
@@ -30,12 +27,10 @@ class MainActivity : AppCompatActivity() {
             //要做的事情
 
             pro++
-            ProgressDialog.get().setProgress(pro)
             handler.postDelayed(this, 50)
             if (pro == 100) {
                 pro = 0
                 handler.removeCallbacks(this)
-                ProgressDialog.get().dismiss()
                 Toast.makeText(this@MainActivity, "上传成功", Toast.LENGTH_SHORT).show()
             }
         }
@@ -56,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun loadingDialog(view: View) {
-        LoadingDialog.get().show()
+        DialogManager.get().showLoading()
         handler.postDelayed(runnable,2000)
     }
 
@@ -73,7 +68,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun progressDialog(view: View) {
-        ProgressDialog.get().show()
         handler.postDelayed(runnableProgress,100)
     }
 }
