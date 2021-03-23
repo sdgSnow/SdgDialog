@@ -5,7 +5,11 @@ import android.os.Handler
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.sdg.dialoglibrary.dialog.*
+import com.sdg.dialoglibrary.dialog.DialogManager
+import com.sdg.dialoglibrary.dialog.DialogManager.Companion.get
+import com.sdg.dialoglibrary.dialog.NormalDialog
+import com.sdg.dialoglibrary.dialog.ProgressDialog.ProgressCallBack
+import com.sdg.dialoglibrary.dialog.TipDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,23 +20,22 @@ class MainActivity : AppCompatActivity() {
         override fun run() {
             //要做的事情
             handler.postDelayed(this, 100)
-            DialogManager.get().stopLoading()
+            DialogManager.get().hideLoading()
             handler.removeCallbacks(this)
         }
     }
 
     var runnableProgress: Runnable = object : Runnable {
         override fun run() {
-            // TODO Auto-generated method stub
-            //要做的事情
-
             pro++
             handler.postDelayed(this, 50)
-            if (pro == 100) {
-                pro = 0
-                handler.removeCallbacks(this)
-                Toast.makeText(this@MainActivity, "上传成功", Toast.LENGTH_SHORT).show()
-            }
+            get().setProgress(pro).setCallBack(object : ProgressCallBack {
+                override fun success() {
+                    get().hideProgress()
+//                    handler.removeCallbacks(runnableProgress)
+                    Toast.makeText(this@MainActivity, "上传成功", Toast.LENGTH_SHORT).show()
+                }
+            })
         }
     }
 
@@ -68,6 +71,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun progressDialog(view: View) {
-        handler.postDelayed(runnableProgress,100)
+        JavaTest().test()
+//        DialogManager.get().showProgress()
+//        handler.postDelayed(runnableProgress,100)
     }
 }

@@ -25,6 +25,11 @@ class ProgressDialog : BaseDialog() {
 
     fun setProgress(progress:Int){
         progressBar.setProgress(progress)
+        if(progress >= 100){
+            if(callBack != null) {
+                callBack?.success()
+            }
+        }
     }
 
     fun setBackCancel(backCancel: Boolean): ProgressDialog {
@@ -48,6 +53,15 @@ class ProgressDialog : BaseDialog() {
 
     override fun windowHeight(): Int {
         return SdgUtils.dip2px(widthAndHeight)
+    }
+
+    fun setCallBack(callBack: ProgressCallBack){
+        this.callBack = callBack
+    }
+
+    private var callBack: ProgressCallBack? = null
+    interface ProgressCallBack{
+        fun success()
     }
 
 }
