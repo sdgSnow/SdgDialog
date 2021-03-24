@@ -1,5 +1,6 @@
 package com.sdg.sdgdialog
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -74,5 +75,10 @@ class MainActivity : AppCompatActivity() {
         JavaTest().test()
 //        DialogManager.get().showProgress()
 //        handler.postDelayed(runnableProgress,100)
+    }
+
+    fun javaActivity(view: View) {
+        val intent = Intent(this@MainActivity, JavaActivity::class.java)
+        startActivity(intent)
     }
 }
