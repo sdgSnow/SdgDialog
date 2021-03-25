@@ -17,7 +17,7 @@
         android:src="@mipmap/loading" />
 
     <TextView
-        android:id="@+id/content"
+        android:id="@+id/tv_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

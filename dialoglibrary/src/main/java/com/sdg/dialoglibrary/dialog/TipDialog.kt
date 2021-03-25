@@ -25,11 +25,11 @@ class TipDialog : BaseDialog() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<TextView>(R.id.content).apply {
+        view.findViewById<TextView>(R.id.tv_message).apply {
             text = content
         }
 
-        view.findViewById<TextView>(R.id.confirm).apply {
+        view.findViewById<TextView>(R.id.tv_yes).apply {
             text = confirm
             setOnClickListener {
                 dismiss()

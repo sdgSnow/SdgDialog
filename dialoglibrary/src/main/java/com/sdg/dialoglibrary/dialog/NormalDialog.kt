@@ -29,11 +29,11 @@ class NormalDialog : BaseDialog() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<TextView>(R.id.title).apply {
+        view.findViewById<TextView>(R.id.tv_title).apply {
             text = title
         }
 
-        view.findViewById<TextView>(R.id.content).apply {
+        view.findViewById<TextView>(R.id.tv_message).apply {
             text = content
         }
 
@@ -43,7 +43,7 @@ class NormalDialog : BaseDialog() {
             }
         }
 
-        view.findViewById<TextView>(R.id.confirm).apply {
+        view.findViewById<TextView>(R.id.tv_yes).apply {
             text = confirm
             setOnClickListener {
                 dismiss()
@@ -51,7 +51,7 @@ class NormalDialog : BaseDialog() {
             }
         }
 
-        view.findViewById<TextView>(R.id.cancle).apply {
+        view.findViewById<TextView>(R.id.tv_no).apply {
             text = cancle
             setOnClickListener {
                 dismiss()

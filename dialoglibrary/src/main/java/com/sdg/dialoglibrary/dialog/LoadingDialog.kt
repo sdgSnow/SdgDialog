@@ -27,7 +27,7 @@ class LoadingDialog : BaseDialog() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<TextView>(R.id.content).apply {
+        view.findViewById<TextView>(R.id.tv_message).apply {
             text = content
         }
 

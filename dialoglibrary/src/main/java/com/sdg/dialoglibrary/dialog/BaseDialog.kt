@@ -91,7 +91,7 @@ abstract class BaseDialog : DialogFragment() {
         }
     }
 
-    fun show(fragmentManager: FragmentManager) {
+    open fun show(fragmentManager: FragmentManager) {
         show(fragmentManager, tag)
     }
 
