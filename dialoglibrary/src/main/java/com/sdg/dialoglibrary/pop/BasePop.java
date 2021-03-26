@@ -4,15 +4,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blankj.utilcode.util.ActivityUtils;
+import com.blankj.utilcode.util.FragmentUtils;
+import com.blankj.utilcode.util.ToastUtils;
 
 public abstract class BasePop extends PopupWindow {
 
@@ -31,7 +35,23 @@ public abstract class BasePop extends PopupWindow {
         this.setFocusable(true);
         this.setOutsideTouchable(false);
 
+        mView.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if (i == KeyEvent.KEYCODE_BACK) {
+                    ToastUtils.showShort("返回了");
+                    return true;
+                }
+                return false;
+            }
+        });
+
         initView();
+    }
+
+    @Override
+    public void setOnDismissListener(OnDismissListener onDismissListener) {
+        super.setOnDismissListener(onDismissListener);
     }
 
     /**

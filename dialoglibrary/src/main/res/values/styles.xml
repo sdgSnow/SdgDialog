@@ -7,4 +7,9 @@
         <!--#dddddd-->
     </style>
 
+    <style name="popwin_common_anim_style">
+        <item name="android:windowEnterAnimation">@anim/base_popwin_show_anim</item>
+        <item name="android:windowExitAnimation">@anim/base_popwin_hide_anim</item>
+    </style>
+
 </resources>
