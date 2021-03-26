@@ -1,14 +1,11 @@
 package com.sdg.dialoglibrary.pop;
 
-import android.app.Activity;
-import android.content.Context;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PopManager {
 
-    private LoadingDialog loadingPop;
-    private ProgressDialog progressPop;
+    private LoadingPop loadingPop;
+    private ProgressPop progressPop;
     private static PopManager popManager;
 
     public static PopManager get() {
@@ -21,7 +18,7 @@ public class PopManager {
 
     public void showLoading(AppCompatActivity context){
         if(loadingPop == null){
-            loadingPop = new LoadingDialog(context);
+            loadingPop = new LoadingPop(context);
         }else {
             loadingPop.dismiss();
         }
@@ -37,7 +34,7 @@ public class PopManager {
 
     public void showProgress(AppCompatActivity activity){
         if(progressPop == null){
-            progressPop = new ProgressDialog(activity);
+            progressPop = new ProgressPop(activity);
         }else {
             progressPop.dismiss();
         }
@@ -49,7 +46,7 @@ public class PopManager {
         return this;
     }
 
-    public void setCallBack(ProgressDialog.CallBack callBack){
+    public void setCallBack(ProgressPop.CallBack callBack){
         progressPop.setCallBack(callBack);
     }
 

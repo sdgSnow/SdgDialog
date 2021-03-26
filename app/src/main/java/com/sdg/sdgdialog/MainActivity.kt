@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun tipDialog(view: View) {
-        TipDialog(this).setTitle("tippop").setMessage("this is a tippop")
+        TipPop(this).setTitle("tippop").setMessage("this is a tippop")
             .setCallback {
                 Toast.makeText(this@MainActivity, "确定", Toast.LENGTH_SHORT).show()
             }
@@ -57,8 +57,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun normalDialog(view: View) {
-        NormalDialog(this).setTitle("NormalPop").setMessage("this is a NormalPop")
-            .setCallback(object : NormalDialog.Callback {
+        NormalPop(this).setTitle("NormalPop").setMessage("this is a NormalPop")
+            .setCallback(object : NormalPop.Callback {
                 override fun yes() {
                     Toast.makeText(this@MainActivity, "确定", Toast.LENGTH_SHORT).show()
                 }

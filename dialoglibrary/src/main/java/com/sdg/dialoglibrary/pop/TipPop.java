@@ -1,8 +1,10 @@
 package com.sdg.dialoglibrary.pop;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.sdg.dialoglibrary.R;
 
 
@@ -16,21 +18,22 @@ public class TipPop extends BasePop {
     private String message;
     private String yes = "确定";
     private float width = 9/10f;
+    private boolean backDismiss = false;//默认false，点击返回键不消失
 
-    public TipPop(Context context) {
-        super(context);
+    public TipPop(AppCompatActivity context) {
+        super(context,true,true);
     }
 
     @Override
-    public int getLayout() {
+    public int getLayoutRes() {
         return R.layout.dialog_tip;
     }
 
     @Override
-    public void initView() {
-        tv_title = mView.findViewById(R.id.tv_title);
-        tv_message = mView.findViewById(R.id.tv_message);
-        tv_yes = mView.findViewById(R.id.tv_yes);
+    public void init(View view) {
+        tv_title = view.findViewById(R.id.tv_title);
+        tv_message = view.findViewById(R.id.tv_message);
+        tv_yes = view.findViewById(R.id.tv_yes);
 
         tv_yes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +42,8 @@ public class TipPop extends BasePop {
                 callback.yes();
             }
         });
+
+        setKeyDownDismiss(backDismiss);
     }
 
     public TipPop setCallback(Callback callback) {
@@ -55,6 +60,11 @@ public class TipPop extends BasePop {
     public TipPop setMessage(String message) {
         this.message = message;
         tv_message.setText(message);
+        return this;
+    }
+
+    public TipPop setBackDismiss(boolean backDismiss) {
+        this.backDismiss = backDismiss;
         return this;
     }
 

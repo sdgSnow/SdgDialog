@@ -1,18 +1,9 @@
 package com.sdg.dialoglibrary.pop;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.PopupWindow;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.blankj.utilcode.util.ActivityUtils;
 import com.sdg.dialoglibrary.R;
 import com.sdg.dialoglibrary.SdgProgressBar;
 
@@ -23,19 +14,22 @@ public class ProgressPop extends BasePop {
     //加载框的宽高（需保持一致，因此放一起）
     private int widthAndHeight = 140;
     private SdgProgressBar progressBar;
+    private boolean backDismiss = false;//默认false，点击返回键不消失
 
-    public ProgressPop(Context context) {
-        super(context);
+    public ProgressPop(AppCompatActivity activity) {
+        super(activity);
     }
 
     @Override
-    public int getLayout() {
+    public int getLayoutRes() {
         return R.layout.dialog_progress;
     }
 
     @Override
-    public void initView() {
-        progressBar = mView.findViewById(R.id.progressBar);
+    public void init(View view) {
+        progressBar = view.findViewById(R.id.progressBar);
+
+        setKeyDownDismiss(backDismiss);
     }
 
 
@@ -60,6 +54,11 @@ public class ProgressPop extends BasePop {
 
     public interface CallBack{
         void success();
+    }
+
+    public ProgressPop setBackDismiss(boolean backDismiss) {
+        this.backDismiss = backDismiss;
+        return this;
     }
 
 }

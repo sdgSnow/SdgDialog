@@ -1,7 +1,6 @@
 package com.sdg.dialoglibrary.utils;
 
 import android.util.Log;
-import com.blankj.utilcode.util.LogUtils;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -24,7 +23,7 @@ public class ReflexUtils {
                 setField(obj, cls.getSuperclass(), field, vlaue);
                 return;
             }
-            LogUtils.e(Log.getStackTraceString(e));
+            Log.e("ReflexUtils",Log.getStackTraceString(e));
         }catch (IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -44,7 +43,7 @@ public class ReflexUtils {
             if (cls.getSuperclass() != null && cls.getSuperclass() != Object.class){
                 return getField(obj, cls.getSuperclass(), field);
             }
-            LogUtils.e(Log.getStackTraceString(e));
+            Log.e("ReflexUtils",Log.getStackTraceString(e));
         }catch (IllegalAccessException e) {
             e.printStackTrace();
         }

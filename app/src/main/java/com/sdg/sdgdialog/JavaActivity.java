@@ -2,15 +2,9 @@ package com.sdg.sdgdialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
-
-import com.blankj.utilcode.util.ToastUtils;
-import com.sdg.dialoglibrary.pop.PopManager;
-import com.sdg.dialoglibrary.pop.TipPop;
 
 public class JavaActivity extends AppCompatActivity {
 

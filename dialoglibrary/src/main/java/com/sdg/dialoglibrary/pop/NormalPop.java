@@ -1,19 +1,10 @@
 package com.sdg.dialoglibrary.pop;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.blankj.utilcode.util.ActivityUtils;
 import com.sdg.dialoglibrary.R;
 
 public class NormalPop extends BasePop {
@@ -30,22 +21,23 @@ public class NormalPop extends BasePop {
     private TextView tv_message;
     private TextView tv_no;
     private TextView tv_yes;
+    private boolean backDismiss = false;//默认false，点击返回键不消失
 
-    public NormalPop(Context context) {
-        super(context);
+    public NormalPop(AppCompatActivity activity) {
+        super(activity,true,true);
     }
 
     @Override
-    public int getLayout() {
+    public int getLayoutRes() {
         return R.layout.dialog_normal;
     }
 
     @Override
-    public void initView() {
-        tv_title = mView.findViewById(R.id.tv_title);
-        tv_message = mView.findViewById(R.id.tv_message);
-        tv_no = mView.findViewById(R.id.tv_no);
-        tv_yes = mView.findViewById(R.id.tv_yes);
+    public void init(View view) {
+        tv_title = view.findViewById(R.id.tv_title);
+        tv_message = view.findViewById(R.id.tv_message);
+        tv_no = view.findViewById(R.id.tv_no);
+        tv_yes = view.findViewById(R.id.tv_yes);
 
         tv_yes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +53,8 @@ public class NormalPop extends BasePop {
                 callback.no();
             }
         });
+
+        setKeyDownDismiss(backDismiss);
     }
 
     public NormalPop setTitle(String title) {
@@ -72,6 +66,11 @@ public class NormalPop extends BasePop {
     public NormalPop setMessage(String message) {
         this.message = message;
         tv_message.setText(message);
+        return this;
+    }
+
+    public NormalPop setBackDismiss(boolean backDismiss) {
+        this.backDismiss = backDismiss;
         return this;
     }
 
