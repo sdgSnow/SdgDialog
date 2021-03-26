@@ -20,6 +20,7 @@ public class LoadingDialog extends BasePopWin{
     private TextView tv_message;
     private ImageView loading;
     private String message;
+    private boolean backDismiss = false;//默认false，点击返回键不消失
 
     public LoadingDialog(AppCompatActivity activity) {
         super(activity,true,true);
@@ -49,7 +50,7 @@ public class LoadingDialog extends BasePopWin{
         msg.what = LOADING_ANIM;
         handler.sendMessage(msg);
 
-        setKeyDownDismiss(false);
+        setKeyDownDismiss(backDismiss);
     }
 
     private static final int LOADING_ANIM = 1;//加载动画
@@ -65,6 +66,11 @@ public class LoadingDialog extends BasePopWin{
     public LoadingDialog setMessage(String message) {
         this.message = message;
         tv_message.setText(message);
+        return this;
+    }
+
+    public LoadingDialog setBackDismiss(boolean backDismiss) {
+        this.backDismiss = backDismiss;
         return this;
     }
 }

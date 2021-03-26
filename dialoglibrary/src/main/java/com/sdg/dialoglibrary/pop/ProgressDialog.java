@@ -15,6 +15,7 @@ public class ProgressDialog extends BasePopWin {
     //加载框的宽高（需保持一致，因此放一起）
     private int widthAndHeight = 140;
     private SdgProgressBar progressBar;
+    private boolean backDismiss = false;//默认false，点击返回键不消失
 
     public ProgressDialog(AppCompatActivity activity) {
         super(activity);
@@ -29,7 +30,7 @@ public class ProgressDialog extends BasePopWin {
     public void init(View view) {
         progressBar = view.findViewById(R.id.progressBar);
 
-        setKeyDownDismiss(false);
+        setKeyDownDismiss(backDismiss);
     }
 
 
@@ -54,6 +55,11 @@ public class ProgressDialog extends BasePopWin {
 
     public interface CallBack{
         void success();
+    }
+
+    public ProgressDialog setBackDismiss(boolean backDismiss) {
+        this.backDismiss = backDismiss;
+        return this;
     }
 
 }

@@ -22,6 +22,7 @@ public class NormalDialog extends BasePopWin {
     private TextView tv_message;
     private TextView tv_no;
     private TextView tv_yes;
+    private boolean backDismiss = false;//默认false，点击返回键不消失
 
     public NormalDialog(AppCompatActivity activity) {
         super(activity,true,true);
@@ -54,7 +55,7 @@ public class NormalDialog extends BasePopWin {
             }
         });
 
-        setKeyDownDismiss(false);
+        setKeyDownDismiss(backDismiss);
     }
 
     public NormalDialog setTitle(String title) {
@@ -66,6 +67,11 @@ public class NormalDialog extends BasePopWin {
     public NormalDialog setMessage(String message) {
         this.message = message;
         tv_message.setText(message);
+        return this;
+    }
+
+    public NormalDialog setBackDismiss(boolean backDismiss) {
+        this.backDismiss = backDismiss;
         return this;
     }
 

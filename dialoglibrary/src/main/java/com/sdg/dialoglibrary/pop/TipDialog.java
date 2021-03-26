@@ -21,6 +21,7 @@ public class TipDialog extends BasePopWin {
     private String message;
     private String yes = "确定";
     private float width = 9/10f;
+    private boolean backDismiss = false;//默认false，点击返回键不消失
 
     public TipDialog(AppCompatActivity context) {
         super(context,true,true);
@@ -45,7 +46,7 @@ public class TipDialog extends BasePopWin {
             }
         });
 
-        setKeyDownDismiss(false);
+        setKeyDownDismiss(backDismiss);
     }
 
     public TipDialog setCallback(Callback callback) {
@@ -62,6 +63,11 @@ public class TipDialog extends BasePopWin {
     public TipDialog setMessage(String message) {
         this.message = message;
         tv_message.setText(message);
+        return this;
+    }
+
+    public TipDialog setBackDismiss(boolean backDismiss) {
+        this.backDismiss = backDismiss;
         return this;
     }
 
